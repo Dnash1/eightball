@@ -30,7 +30,7 @@ var server = net.createServer(function(connection) {
 	console.log("User connected");
 	connection.write("Ask your question mortal \n");
 	connection.on("data", function(data){
-		console.log(data);
+		console.log(data.toString());
 		if (data.toString().indexOf("?") === -1) {
 			connection.write("That isn't a question fool! \n");
 		} else {
