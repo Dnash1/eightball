@@ -30,11 +30,13 @@ var server = net.createServer(function(connection) {
 	console.log("User connected");
 	connection.write("Ask your question mortal \n");
 	connection.on("data", function(data){
+		console.log(data);
 		if (data.toString().indexOf("?") === -1) {
 			connection.write("That isn't a question fool! \n");
 		} else {
 			var rand = answers[Math.floor(Math.random() * answers.length)];
 			connection.write(rand + "\n");
+			console.log(rand);
 		}
 
 
